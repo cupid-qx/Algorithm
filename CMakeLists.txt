@@ -3,5 +3,5 @@ project(AlgorithmLearning)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES 03/SeqListOperate.c)
+set(SOURCE_FILES 03/lianbiao.c)
 add_executable(AlgorithmLearning ${SOURCE_FILES})

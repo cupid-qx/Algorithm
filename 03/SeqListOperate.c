@@ -89,7 +89,7 @@ int delete(SeqList *L, int i, int e) {
         *(p - 1) = *p;
     }
     --L->iLength;
-    return OK;
+    return e;
 }
 
 int display(SeqList *L) {
@@ -139,8 +139,8 @@ int main() {
                 //删除指定位置的数据元素
                 printf("请输入你要删除的元素的位置（即删除第i个元素）\n");
                 scanf("%d", &i);
-                delete(&L, i, e);
                 printf("新的线性表是\n");
+                printf("删除的元素是:%d\n",delete(&L, i, e););
                 display(&L);
                 break;
             case 5:
