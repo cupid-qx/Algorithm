@@ -110,6 +110,7 @@ int main() {
 
     initList(&L);
 
+
     do {
         printf("请输入你要进行的操作序号\n");
         printf("1.线性表清空\n");
