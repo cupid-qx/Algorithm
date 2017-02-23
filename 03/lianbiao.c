@@ -8,7 +8,6 @@ typedef struct {
     int age;
 } DATA;    //数据结点类型
 
-#include "ChainList.h"
 #include "ChainList.c"
 void ChainListAll(ChainList *head) //遍历链表
 {
@@ -31,12 +30,14 @@ int main() {
     char key[15], findkey[15];
 
     printf("输入链表中的数据，包括关键字、姓名、年龄，关键字输入0，则退出：\n");
+
     do {
         fflush(stdin);  //清空输入缓冲区 
         scanf("%s", data.key);
         if (strcmp(data.key, "0") == 0) break; //若输入0，则退出
         scanf("%s%d", data.name, &data.age);
         head = addEnd(head, data);//在链表尾部添加结点数据
+        printf("输入链表中的数据，包括关键字、姓名、年龄，关键字输入0，则退出：\n");
     } while (1);
 
     printf("该链表共有%d个结点。\n", length(head)); //返回结点数量

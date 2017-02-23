@@ -2,75 +2,61 @@
 // Created by qcq on 2017/2/21.
 //
 
-void init(SeqList *SL) //初始化顺序表
-{
-    SL->length = 0;     //初始化时，设置顺序表长度为0
+
+// 定义顺序表的结构
+#define MAXSIZE 100
+typedef struct {
+    DATA listData[MAXSIZE + 1]; // 保存顺序表的数组
+    int length;
+} SeqList;
+
+void init(SeqList *list) {
+    list->length = 0;
 }
 
-int length(SeqList *SL)  //返回顺序表的元素数量
-{
-    return SL->length;
+int length(SeqList *list) {
+    return list->length;
 }
 
-int add(SeqList *SL, DATA data)  //增加元素到顺序表尾部
-{
-    if (SL->length >= MAXSIZE)  //顺序表已满
-    {
-        printf("顺序表已满，不能再添加结点了！\n");
-        return 0;
+int add(SeqList *list, DATA data) {
+    if (list->length >= MAXSIZE) {
+        printf("顺序表已满，添加失败");
+        return -1;
     }
-    SL->ListData[++SL->length] = data;
+    list->length++;
+    list->listData[list->length] = data;
     return 1;
 }
 
-int insert(SeqList *SL, int n, DATA data) {
+int insert(SeqList *list, int n, DATA data) {
+    if (list->length >= MAXSIZE) {
+        printf("顺序表已满，添加失败");
+        return -1;
+    }
+    if (n < 1 || n > list->length - 1) {
+        printf("插入序号不正确，插入失败");
+        return -1;
+    }
+
     int i;
-    if (SL->length >= MAXSIZE)   //顺序表结点数量已超过最大数量
-    {
-        printf("顺序表已满，不能插入结点!\n");
-        return 0;             //返回0表示插入不成功
+    for (i = list->length; i >= n; --i) {
+        list->listData[i++] = list->listData[i];
     }
-    if (n < 1 || n > SL->length - 1)  //插入结点序号不正确
-    {
-        printf("插入元素序号错误，不能插入元素！\n");
-        return 0;              //返回0，表示插入不成功
-    }
-    for (i = SL->length; i >= n; i--)  //将顺序表中的数据向后移动
-        SL->ListData[i + 1] = SL->ListData[i];
-    SL->ListData[n] = data;        //插入结点
-    SL->length++;               //顺序表结点数量增加1
-    return 1;                   //返回成功插入
+    list->listData[n] = data;
+    list->length++;
+    return 1;
+
 }
 
-int delete(SeqList *SL, int n)  //删除顺序表中的数据元素
-{
-    int i;
-    if (n < 1 || n > SL->length + 1)  //删除元素序号不正确
-    {
-        printf("删除结点序号错误，不能删除结点！\n");
-        return 0;              //返回0，表示删除不成功
+int delete(SeqList *list, int n) {
+    if (n < 1 || n > list->length) {
+        printf("输入序号不正确，删除失败");
+        return -1;
     }
-    for (i = n; i < SL->length; i++)  //将顺序表中的数据向前移动
-        SL->ListData[i] = SL->ListData[i + 1];
-    SL->length--;               //顺序表元素数量减1
-    return 1;                   //返回成功删除
-}
-
-DATA *findByNum(SeqList *SL, int n)  //根据序号返回数据元素
-{
-    if (n < 1 || n > SL->length + 1)  //元素序号不正确
-    {
-        printf("结点序号错误，不能返回结点！\n");
-        return NULL;              //返回0，表示不成功
-    }
-    return &(SL->ListData[n]);
-}
-
-int findByKey(SeqList *SL, char *key)  //按关键字查询结点
-{
     int i;
-    for (i = 1; i <= SL->length; i++)
-        if (strcmp(SL->ListData[i].key, key) == 0)  //如果找到所需结点
-            return i;        //返回结点序号
-    return 0;  //遍历后仍没有找到，则返回0
+    for (i = n; i < list->length; ++i) {
+        list->listData[i] = list->listData[i + 1];
+    }
+    list->length--;
+    return 1 ;
 }
