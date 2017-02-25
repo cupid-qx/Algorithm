@@ -140,7 +140,7 @@ int main() {
                 printf("请输入你要删除的元素的位置（即删除第i个元素）\n");
                 scanf("%d", &i);
                 printf("新的线性表是\n");
-                printf("删除的元素是:%d\n",delete(&L, i, e););
+                printf("删除的元素是:%d\n", delete(&L, i, e););
                 display(&L);
                 break;
             case 5:

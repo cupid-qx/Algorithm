@@ -6,7 +6,6 @@
 #include <conio.h>
 #include <mem.h>
 
-
 typedef struct {
     char key[15];  //结点的关键字
     char name[20];
