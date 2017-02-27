@@ -10,12 +10,15 @@
     <file url="file://$PROJECT_DIR$/03/CycQueue.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/SeqListOperate.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/SeqList_Test.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/03/SeqStack.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/Seq_List.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/Seq_List.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/ceStack.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/ceStackTest.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/lianbiao.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/shuncao.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/04/Test.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/04/erTree.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/CMakeLists.txt" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
