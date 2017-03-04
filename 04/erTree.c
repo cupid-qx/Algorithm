@@ -2,85 +2,117 @@
 #include <stdlib.h> 
 
 #define QUEUE_MAXSIZE 50
-typedef char DATA;       //定义元素类型 
-typedef struct ChainTree  //定义二叉树结点类型 
-{
-    DATA data;    //元素数据
-    struct ChainTree *left;    //左子树结点指针
-    struct ChainTree *right;    //右子树结点指针
-} ChainBinTree;
 
-ChainBinTree *BinTreeInit(ChainBinTree *node) //初始化二叉树根节点
-{
-    if (node != NULL) //若二叉树根节点不为空
-        return node;
-    else
-        return NULL;
+// 定义二叉树中的元素类型
+typedef char DATA;
+
+// 定义二叉树中的节点类型
+typedef struct Node {
+    // 元素
+    DATA element;
+    // 左子树
+    struct Node *leftChild;
+    // 右子树
+    struct Node *rightChild;
+} BinaryTree;
+
+// 初始化二叉树根节点
+BinaryTree *init(BinaryTree *root) {
+    // 若二叉树根节点不为空
+    if(root !=NULL)
+        return root ;
+    root = (BinaryTree *) malloc(sizeof(BinaryTree));
+    return root;
 }
 
-int BinTreeAddNode(ChainBinTree *bt, ChainBinTree *node, int n) //添加数据到二叉树
-//bt为父节点，node为子节点,n=1表示添加左子树，n=2表示添加右子树 
-{
-    if (bt == NULL) {
-        printf("父节点不存在，请先设置父节点!\n");
+/**
+ * 向二叉树中的节点添加孩子节点
+ * @param parent：父亲节点
+ * @param node ：要添加的节点
+ * @param n ：添加的位置，1表示左节点，2表示右节点
+ * @return
+ */
+int addNode(BinaryTree *parent, BinaryTree *node, int n) {
+    if (parent == NULL) {
+        printf("父亲节点不存在，添加失败");
         return 0;
     }
     switch (n) {
-        case 1: //添加到左节点 
-            if (bt->left) //左子树不为空
-            {
-                printf("左子树节点不为空!\n");
+        case 1:
+            // 添加到左节点
+            if (parent->leftChild) {
+                // 左节点不为空
+                printf("左节点不为空，添加失败");
                 return 0;
             } else
-                bt->left = node;
+                parent->leftChild = node;
             break;
-        case 2://添加到右节点
-            if (bt->right) //右子树不为空
-            {
-                printf("右子树节点不为空!\n");
+
+        case 2:
+            // 添加到右节点
+            if (parent->rightChild) {
+                // 右节点不为空
+                printf("右节点不为空，添加失败");
                 return 0;
             } else
-                bt->right = node;
+                parent->rightChild = node;
             break;
+
         default:
-            printf("参数错误!\n");
+            printf("输入参数错误");
             return 0;
     }
     return 1;
 }
 
-ChainBinTree *BinTreeLeft(ChainBinTree *bt) //返回左子节点
-{
-    if (bt)
-        return bt->left;
+/**
+ * 获得父亲节点的左子节点
+ * @param parent ：父亲节点
+ * @return ：返回子节点的元素值，不存在返回NULL
+ */
+DATA getLeft(BinaryTree *parent) {
+    if (parent->leftChild)
+        return parent->leftChild->element;
     else
         return NULL;
 }
 
-ChainBinTree *BinTreeRight(ChainBinTree *bt) //返回右子节点
-{
-    if (bt)
-        return bt->right;
+/**
+ * 获得父亲节点的右子节点
+ * @param parent ：父亲节点
+ * @return ：返回子节点的元素值，不存在返回NULL
+ */
+DATA getRight(BinaryTree *parent) {
+    if (parent->rightChild)
+        return parent->rightChild->element;
     else
         return NULL;
 }
 
-int BinTreeIsEmpty(ChainBinTree *bt) //检查二叉树是否为空，为空则返回1,否则返回0
-{
-    if (bt)
+/**
+ * 判空
+ * @param root：二叉树节点
+ * @return
+ */
+int isEmpty(BinaryTree *root) {
+    if (root)
         return 0;
     else
         return 1;
 }
 
-int BinTreeDepth(ChainBinTree *bt) //求二叉树深度
-{
+/**
+ * 求二叉树的深度
+ * @param root
+ * @return 递归遍历左子树和右子树，取最大值
+ */
+int deepth(BinaryTree *root) {
     int dep1, dep2;
-    if (bt == NULL)
+    if (root == NULL)
         return 0; //对于空树，深度为0
     else {
-        dep1 = BinTreeDepth(bt->left); //左子树深度 (递归调用)
-        dep2 = BinTreeDepth(bt->right); //右子树深度 (递归调用)
+        dep1 = deepth(root->leftChild);
+        dep2 = deepth(root->rightChild);
         if (dep1 > dep2)
             return dep1 + 1;
         else
@@ -88,100 +120,133 @@ int BinTreeDepth(ChainBinTree *bt) //求二叉树深度
     }
 }
 
-ChainBinTree *BinTreeFind(ChainBinTree *bt, DATA data) //在二叉树中查找值为data的节点
-{
-    ChainBinTree *p;
-    if (bt == NULL)
-        return NULL;
+/**
+ * 查找二叉树中是否包含某元素
+ * @param root ：二叉树的根节点
+ * @param data ：要查找的数据
+ * @return ：1包含，0不包含
+ */
+int search(BinaryTree *root, DATA data) {
+    if (root == NULL)
+        return 0;
     else {
-        if (bt->data == data)
-            return bt;
-        else { // 分别向左右子树递归查找
-            if (p = BinTreeFind(bt->left, data))
-                return p;
-            else if (p = BinTreeFind(bt->right, data))
-                return p;
+        if (root->element == data)
+            return 1;
+        else {
+            if (search(root->leftChild, data) == 1)
+                return 1;
+            else if (search(root->rightChild, data) == 1)
+                return 1;
             else
-                return NULL;
+                return 0;
         }
     }
 }
 
-void BinTreeClear(ChainBinTree *bt) // 清空二叉树，使之变为一棵空树
-{
-    if (bt) {
-        BinTreeClear(bt->left); //清空左子树
-        BinTreeClear(bt->right);//清空右子树
-        free(bt);//释放当前节点所占内存
-        bt = NULL;
+void clear(BinaryTree *root) {
+    if (root) {
+        clear(root->leftChild);
+        clear(root->rightChild);
+        free(root);
+        root = NULL;
     }
     return;
 }
 
-void BinTree_DLR(ChainBinTree *bt, void (*oper)(ChainBinTree *p))  //先序遍历
-{
-    if (bt)//树不为空，则执行如下操作
-    {
-        oper(bt); //处理节点的数据
-        BinTree_DLR(bt->left, oper);
-        BinTree_DLR(bt->right, oper);
+/**
+ * 前序遍历
+ * @param root
+ */
+void preOrder(BinaryTree *root) {
+    if (root) {
+        printf("%c、", root->element);
+        preOrder(root->leftChild);
+        preOrder(root->rightChild);
     }
     return;
 }
 
-void BinTree_LDR(ChainBinTree *bt, void(*oper)(ChainBinTree *p))  //中序遍历
-{
-    if (bt)//树不为空，则执行如下操作
-    {
-        BinTree_LDR(bt->left, oper); //中序遍历左子树
-        oper(bt);//处理节点数据
-        BinTree_LDR(bt->right, oper); //中序遍历右子树/
+/**
+ * 中序遍历
+ * @param root
+ */
+void inOrder(BinaryTree *root) {
+    if (root) {
+        inOrder(root->leftChild);
+        printf("%c、", root->element);
+        inOrder(root->rightChild);
     }
     return;
 }
 
-void BinTree_LRD(ChainBinTree *bt, void (*oper)(ChainBinTree *p)) //后序遍历
-{
-    if (bt) {
-        BinTree_LRD(bt->left, oper); //后序遍历左子树
-        BinTree_LRD(bt->right, oper); //后序遍历右子树/
-        oper(bt); //处理节点数据
+/**
+ * 后序遍历
+ * @param root
+ */
+void postOrder(BinaryTree *root) {
+    if (root) {
+        postOrder(root->leftChild);
+        postOrder(root->rightChild);
+        printf("%c、", root->element);
     }
     return;
 }
 
-void oper(ChainBinTree *p) //操作二叉树节点数据 
+/**
+ * 按层遍历
+ * @param root
+ */
+void levelOrder(BinaryTree *root) //按层遍历
 {
-    printf("%c ", p->data); //输出数据
-    return;
-}
-
-void BinTree_Level(ChainBinTree *bt, void (*oper)(ChainBinTree *p)) //按层遍历
-{
-    ChainBinTree *p;
-    ChainBinTree *q[QUEUE_MAXSIZE]; //定义一个顺序栈
+    BinaryTree *p;
+    BinaryTree *q[QUEUE_MAXSIZE]; //定义一个顺序栈
     int head = 0, tail = 0;//队首、队尾序号
-    if (bt)//若队首指针不为空
+    if (root)//若队首指针不为空
     {
         tail = (tail + 1) % QUEUE_MAXSIZE;//计算循环队列队尾序号
-        q[tail] = bt;//将二叉树根指针进队
+        q[tail] = root;//将二叉树根指针进队
     }
     while (head != tail) //队列不为空，进行循环
     {
         head = (head + 1) % QUEUE_MAXSIZE; //计算循环队列的队首序号
         p = q[head]; //获取队首元素
-        oper(p);//处理队首元素
-        if (p->left != NULL) //若节点存在左子树，则左子树指针进队
+        printf("%c、", root->element);//处理队首元素
+        if (p->leftChild != NULL) //若节点存在左子树，则左子树指针进队
         {
             tail = (tail + 1) % QUEUE_MAXSIZE;//计算循环队列的队尾序号
-            q[tail] = p->left;//将左子树指针进队
+            q[tail] = p->leftChild;//将左子树指针进队
         }
 
-        if (p->right != NULL)//若节点存在右孩子，则右孩子节点指针进队
+        if (p->rightChild != NULL)//若节点存在右孩子，则右孩子节点指针进队
         {
             tail = (tail + 1) % QUEUE_MAXSIZE;//计算循环队列的队尾序号
-            q[tail] = p->right;//将右子树指针进队
+            q[tail] = p->rightChild;//将右子树指针进队
         }
     }
     return;
+}
+
+int main() {
+
+    BinaryTree *root=NULL;
+    root = init(root);
+
+    root->element = 'A';
+    root->leftChild = NULL;
+    root->rightChild = NULL;
+
+    BinaryTree *temp = NULL;
+    temp = init(temp);
+
+    temp->element = 'A' + 1;
+    temp->rightChild = NULL;
+    temp->leftChild = NULL;
+
+    addNode(root, temp, 1);
+
+    printf("根节点的左子树和右子树分别是：%c,%c\n",getLeft(root),getRight(root));
+    preOrder(root);
+
+    printf("\n树的高度是：%d",deepth(root));
+    return 0;
 }

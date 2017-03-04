@@ -3,5 +3,8 @@ project(AlgorithmLearning)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES)
+
+set(SOURCE_FILES Queen/queue8s.cpp)
+
+
 add_executable(AlgorithmLearning ${SOURCE_FILES})

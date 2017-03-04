@@ -17,8 +17,14 @@
     <file url="file://$PROJECT_DIR$/03/ceStackTest.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/lianbiao.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/03/shuncao.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/04/Huffman.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/Test.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/erTree.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/04/htest.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/04/xianTest.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/04/xianTree.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/tu.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/tuTest.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/CMakeLists.txt" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

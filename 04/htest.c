@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <conio.h>
 #include "Huffman.c"
 int main()
 {
@@ -36,6 +37,7 @@ int main()
     Decode(ht,n,code,alphabet,code1); //根据编码字符串生成解码后的字符串 
     printf("\n编码:\n%s\n转换后为:\n%s\n",code,code1); 
     getch();
+    glClear()
     return 0;
 }
 
