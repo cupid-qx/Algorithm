@@ -4,7 +4,7 @@ project(AlgorithmLearning)
 set(CMAKE_CXX_STANDARD 11)
 
 
-set(SOURCE_FILES Queen/queue8s.cpp)
+set(SOURCE_FILES 05/AdjacentList.c)
 
 
 add_executable(AlgorithmLearning ${SOURCE_FILES})

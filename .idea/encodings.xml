@@ -21,9 +21,16 @@
     <file url="file://$PROJECT_DIR$/04/Test.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/erTree.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/htest.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/04/tu.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/04/tu.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/xianTest.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/xianTree.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/05/tu.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/AdjacentList.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/AdjacentMatrix.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/Matrixtu.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/linjieTest.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/shu.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/shuTest.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/05/tuTest.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/CMakeLists.txt" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />

@@ -3,9 +3,9 @@
 //
 
 #include <stdio.h>
-#include <cstdlib>
 #include <cstring>
 #include <conio.h>
+#include <cstdlib>
 
 void showQueen(int iArrQueen[], int iLen, int iSolution) {
     int i, j;
@@ -38,6 +38,7 @@ void showQueen(int iArrQueen[], int iLen, int iSolution) {
 
 }
 
+// 判断是否冲突
 bool isClash(int iArrQueen[]) {
     int i, j;
     for (i = 1; i <= 8; ++i) {
@@ -52,6 +53,17 @@ bool isClash(int iArrQueen[]) {
     return false;
 }
 
+// 回溯法判断是否冲突
+bool isClash2(int iArrQueen[], int nRow) {
+    for (int i = 0; i < nRow; ++i) {
+        if (iArrQueen[i] == iArrQueen[nRow])
+            return true;
+        if (abs(iArrQueen[i] - iArrQueen[nRow]) == abs(i - nRow))
+            return true;
+    }
+
+    return false;
+}
 
 /**
  * 枚举法，将所有方案全部拿出来，在验证
@@ -85,17 +97,45 @@ void enumQueenPosition(int iArrQueen[], int &iSolutions) {
     }
 }
 
+
+/**
+ * 回溯法，将皇后放在一行中的某个位置，然后进行判断
+ * @param iArrQueen
+ * @param iRow
+ * @param iSolutions
+ */
+void putQueenPosition(int iArrQueen[], int iRow,int iLength, int &iSolutions) {
+    for (int i = 0; i < iLength; ++i) {
+        iArrQueen[iRow] = i;
+        if (!isClash2(iArrQueen,iRow))
+        {
+            // 皇后已经到达了最后的位置
+            if(iRow == iLength-1)
+            {
+                iSolutions++ ;
+                showQueen(iArrQueen,iLength,iSolutions);
+            }else
+            {
+                putQueenPosition(iArrQueen,iRow+1,iLength,iSolutions);
+            }
+        }
+    }
+
+}
+
 int main() {
 
     // 每一个成员代表一个皇后的位置
-    int arrQueen[8];
-    memset(arrQueen, -1, sizeof(int) * 8);
+    int iLength = 11;
+    int arrQueen[iLength];
+    memset(arrQueen, -1, sizeof(int) * iLength);
 //    arrQueen[1] = 2;
 //    arrQueen[3] = 3;
 
-    int iSolutins = 0;
-    enumQueenPosition(arrQueen, iSolutins);
-    // showQueen(arrQueen, 8,iSolutins);
+    int iSolutinos = 0;
+//    enumQueenPosition(arrQueen, iSolutins);
+//    showQueen(arrQueen, 8,iSolutins);
+    putQueenPosition(arrQueen,0,iLength,iSolutinos);
 
     return 0;
 }
