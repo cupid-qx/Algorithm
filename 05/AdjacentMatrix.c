@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 #define VERTEX_MAX 26   //图的最大顶点数
-#define MAX_VALUE0 32767 //最大值(可设为一个最大整数)
+#define MAX_VALUE 32767 //最大值(可设为一个最大整数)
 typedef struct
 {
     char Vertex[VERTEX_MAX]; //保存顶点信息(序号或字母)
@@ -68,20 +68,20 @@ void showAdjacentMatrix(AdjacentMatrix *graph) {
     }
 }
 
-
-int main() {
-    AdjacentMatrix G; //定义保存邻接矩阵结构的图
-    int i, j;
-    printf("输入生成图的类型(0:无向图,1:有向图):");
-    scanf("%d", &G.iGraphType); //图的种类
-    printf("输入图的顶点数量和边数量:");
-    scanf("%d,%d", &G.iVertexNum, &G.iEdgeNum); //输入图顶点数和边数
-    for (i = 0; i < G.iVertexNum; i++)  //清空矩阵
-        for (j = 0; j < G.iVertexNum; j++)
-            G.Edges[i][j] = MAX_VALUE; //设置矩阵中各元素的值为最大值
-    createAdjacentMatrix(&G); //创建用邻接表保存的图
-    printf("邻接矩阵数据如下:\n");
-    showAdjacentMatrix(&G);
-    getch();
-    return 0;
-}
+//
+//int main() {
+//    AdjacentMatrix G; //定义保存邻接矩阵结构的图
+//    int i, j;
+//    printf("输入生成图的类型(0:无向图,1:有向图):");
+//    scanf("%d", &G.iGraphType); //图的种类
+//    printf("输入图的顶点数量和边数量:");
+//    scanf("%d,%d", &G.iVertexNum, &G.iEdgeNum); //输入图顶点数和边数
+//    for (i = 0; i < G.iVertexNum; i++)  //清空矩阵
+//        for (j = 0; j < G.iVertexNum; j++)
+//            G.Edges[i][j] = MAX_VALUE; //设置矩阵中各元素的值为最大值
+//    createAdjacentMatrix(&G); //创建用邻接表保存的图
+//    printf("邻接矩阵数据如下:\n");
+//    showAdjacentMatrix(&G);
+//    getch();
+//    return 0;
+//}

@@ -21,17 +21,21 @@
     <file url="file://$PROJECT_DIR$/04/Test.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/erTree.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/htest.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/04/tu.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/04/tu.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/xianTest.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/04/xianTree.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/05/AdjacentList.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/05/AdjacentMatrix.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/05/Matrixtu.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/05/linjieTest.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/05/shu.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/05/shuTest.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/05/tuTest.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/bian.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/05/bianTest.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/BinarySortTree.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/SeqSearch.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/chazhao.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/ercha.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/erdel.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/haxi.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/juyi.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/suo.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/06/zonghe.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/CMakeLists.txt" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

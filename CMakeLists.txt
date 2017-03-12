@@ -4,7 +4,7 @@ project(AlgorithmLearning)
 set(CMAKE_CXX_STANDARD 11)
 
 
-set(SOURCE_FILES 05/AdjacentList.c)
+set(SOURCE_FILES 06/ercha.c)
 
 
 add_executable(AlgorithmLearning ${SOURCE_FILES})
